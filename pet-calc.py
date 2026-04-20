@@ -22,9 +22,14 @@ for _ in range(trials):
 # 확률 계산
 probabilities = [c / trials * 100 for c in counts]
 
-print("\n=== 결과 ===")
+print("\n==============================")
+print("      🎯 확률 분석 결과")
+print("==============================")
+
 print("획득 개수 | 확률(%)")
-print("------------------")
+print("------------------------")
 
 for i in range(max_pet + 1):
     print(f"{i}개      | {probabilities[i]:.2f}%")
+
+print("==============================\n")
