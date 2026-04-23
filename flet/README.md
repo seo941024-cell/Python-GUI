@@ -99,7 +99,7 @@ class BowlingGame:
             # ================= 10프레임 =================
             if frame == 9:
                 result = []
-                roll_in_frame = 0  # ⭐ 핵심
+                roll_in_frame = 0  # 
 
                 while i < len(self.throw_list):
                     val = self.throw_list[i]
@@ -224,7 +224,7 @@ def main(page: ft.Page):
     page.title = "🎳 Bowling Score Board"
     page.padding = 20
 
-    game = BowlingGame()  # 외부 클래스 있다고 가정
+    game = BowlingGame()  
     game_over = False
 
     frame_container = ft.Container()
@@ -249,7 +249,7 @@ def main(page: ft.Page):
                         weight=ft.FontWeight.BOLD,
                         size=30
                     ),
-                    width=160 if i == 9 else 100,   # ⭐ 10프레임만 크게
+                    width=160 if i == 9 else 100,   # 
                     height=100,
                     border=ft.border.all(5, "#aa2626"),
                     bgcolor="#FFE4E4",
@@ -272,7 +272,7 @@ def main(page: ft.Page):
                         weight=ft.FontWeight.BOLD,
                         size=30
                     ),
-                    width=160 if i == 9 else 100,   # ⭐ 10프레임만 길게
+                    width=160 if i == 9 else 100,   
                     height=100,
                     border=ft.border.all(5, "#2453aa"),
                     bgcolor="#ECEEFF",
@@ -284,7 +284,7 @@ def main(page: ft.Page):
                         )
 
                 )
-                for i, s in enumerate(scores)   # ⭐ 여기 중요
+                for i, s in enumerate(scores)  
             ],
             scroll=ft.ScrollMode.AUTO
         )
