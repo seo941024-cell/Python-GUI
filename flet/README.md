@@ -211,7 +211,8 @@ python main.py
 * 프레임별 점수 박스 UI
 * 점수 누적 표시
 * 입력창 + 투구 버튼
-![preview](https://raw.githubusercontent.com/seo941024/Python/blob/master/flet/bowling.png)
+  
+![preview](https://raw.githubusercontent.com/seo941024/Python/master/flet/bowling.png)
 ---
 
 ## 📖 학습 포인트
