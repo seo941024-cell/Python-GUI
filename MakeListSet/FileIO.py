@@ -25,3 +25,7 @@ class FileIO:
         with open(self.filename, "w", encoding="utf-8") as f:
             for line in self.line_num:
                 f.write(line)
+
+    def q(self):
+        with open(self.filename, "r", encoding="utf-8") as f:
+            f.close()
