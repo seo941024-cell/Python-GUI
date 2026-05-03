@@ -38,7 +38,7 @@ class Set:
         
         for i in range(self.size):
             if self.data[i] == e:
-                self.data = self.data[:i] + self.data[i+1:] + [None]
+                self.data = self.data[:i] +[None] + self.data[i+1:] 
                 self.size -=1
                 return e
             
