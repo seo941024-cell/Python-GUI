@@ -4,15 +4,14 @@ class PriorityMazeSolver:
         self.maze = maze
         self.size = len(maze)
         self.visited = [[False]*self.size for _ in range(self.size)]
-        self.pq = []  # (우선순위, x, y) → 거리가 작을수록 먼저
+        self.pq = [] 
+        # (우선순위, x, y) → 거리가 작을수록 먼저
 
     def _distance(self, r, c, exit):
         er, ec = exit
-        # 유클리드 거리 (루트 없이 제곱으로만 비교해도 됨)
         return (r - er)**2 + (c - ec)**2
 
     def _enqueue(self, priority, r, c):
-        # 우선순위 작은 게 앞으로 (거리 가까울수록 우선)
         item = (priority, r, c)
         i = len(self.pq) - 1
         self.pq.append(item)
@@ -43,7 +42,7 @@ class PriorityMazeSolver:
             print(f"현재 위치: ({r},{c})  출구까지 거리: {self._distance(r,c,exit)}")
 
             if (r, c) == exit:
-                print("출구 찾음!")
+                print("출구 도착!")
                 return True
 
             for dr, dc in [(-1,0),(1,0),(0,-1),(0,1)]:
@@ -55,7 +54,7 @@ class PriorityMazeSolver:
                     d = self._distance(nr, nc, exit)
                     self._enqueue(d, nr, nc)  # 거리가 우선순위
 
-        print("출구 없음")
+        print("출구가 없습니다.")
         return False
 
 

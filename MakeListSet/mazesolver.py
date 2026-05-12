@@ -2,7 +2,6 @@ class MazeSolver:
 
     def __init__(self, size=6):
         self.size = size
-        # 기본 미로 
         self.maze = [
             ['1','1','1','1','1','1'],
             ['e','0','0','0','0','1'],
@@ -52,7 +51,7 @@ class MazeSolver:
                 print(f"현재 위치: {pos}")
 
             if pos == exit:
-                print(f"\n출구 찾음! 경로: {self.path}")
+                print(f"\n출구 도착! 경로: {self.path}")
                 return True
 
             for dr, dc in [(-1,0),(1,0),(0,-1),(0,1)]:
@@ -63,7 +62,7 @@ class MazeSolver:
                     self.maze[nr][nc] in ('0','x')):
                     self.stack.append((nr, nc))
 
-        print("출구 없음")
+        print("출구가 없습니다.")
         return False
 
     def print_maze(self):
