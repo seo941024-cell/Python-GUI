@@ -12,7 +12,7 @@ class MazeSolver:
         ]
         self.visited = [[False]*size for _ in range(size)]
         self.stack = []
-        self.path = []  # 지나온 경로 저장
+        self.path = []  #지나온 경로 저장
 
     def reset(self):
         self.visited = [[False]*self.size for _ in range(self.size)]

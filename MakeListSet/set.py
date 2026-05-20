@@ -73,7 +73,7 @@ class Set:
     
     def difference(self, setB):
         result = Set()
-        result.MAX_SIZE = self.size  # 최대 self 크기
+        result.MAX_SIZE = self.size
         result.data = [None] * result.MAX_SIZE
 
         for i in self.data[:self.size]:

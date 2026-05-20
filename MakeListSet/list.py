@@ -125,7 +125,7 @@ print(testlist)
 #insert============== =====
 testlist.insert(0, 1)
 testlist.insert(1, 2)
-testlist.insert(3, 3) #error 확인
+testlist.insert(3, 3) 
 testlist.insert(2, 3)
 testlist.insert(3, 4)
 testlist.insert(4, 5)

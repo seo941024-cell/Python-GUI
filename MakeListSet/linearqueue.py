@@ -2,9 +2,9 @@ class LinearQueue:
 
     def __init__(self, capacity=10):
         self.capacity = capacity
-        self.queue = [None] * capacity  # 고정 크기 배열
-        self.front = -1  # dequeue 위치
-        self.rear = -1   # enqueue 위치
+        self.queue = [None] * capacity  
+        self.front = -1  
+        self.rear = -1  
 
     def is_full(self):
         return self.rear == self.capacity - 1
@@ -26,7 +26,7 @@ class LinearQueue:
             return None
         self.front += 1
         item = self.queue[self.front]
-        self.queue[self.front] = None  # 자리 비우기
+        self.queue[self.front] = None 
         return item
 
     def peek(self):
