@@ -1,4 +1,4 @@
-# 1. 셸 정렬 (Shell Sort)
+#셸 정렬
 def shell_sort(arr):
     n = len(arr)
     gap = n // 2
@@ -14,8 +14,9 @@ def shell_sort(arr):
     return arr
 
 
-# 2. 힙 정렬 (Heap Sort)
+#힙 정렬
 def heap_sort(arr):
+    #노드의 수
     n = len(arr)
 
     def heapify(arr, n, i):
@@ -38,7 +39,7 @@ def heap_sort(arr):
     return arr
 
 
-# 3. 병합 정렬 (Merge Sort)
+#병합 정렬
 def merge_sort(arr):
     if len(arr) <= 1:
         return arr
@@ -60,21 +61,69 @@ def merge_sort(arr):
     return result
 
 
-# 4. 퀵 정렬 (Quick Sort)
-def quick_sort(arr):
+#퀵 정렬
+def quick_sort(arr, pivot_index=None):
     if len(arr) <= 1:
         return arr
-    pivot = arr[len(arr) // 2]
+    
+    if pivot_index is None:
+        pivot = arr[len(arr) // 2]
+    else:
+        pivot = arr[pivot_index]
+
     left = [x for x in arr if x < pivot]
     mid = [x for x in arr if x == pivot]
     right = [x for x in arr if x > pivot]
     return quick_sort(left) + mid + quick_sort(right)
 
+#이중피벗 퀵정렬
+def double_quick_sort(arr, pivot_index1=None, pivot_index2=None):
+    if len(arr) <=1:
+        return arr
+    
+    pivot1 = arr[0] if pivot_index1 is None else arr[pivot_index1]
+    pivot2 = arr[-1] if pivot_index2 is None else arr[pivot_index2]
+
+    if pivot1 > pivot2:
+        pivot1, pivot2 = pivot2, pivot1
+
+    left = [x for x in arr if x < pivot1]
+    p1 = [x for x in arr if x == pivot1]
+    mid = [x for x in arr if (x > pivot1 and x < pivot2)]
+    p2 = [x for x in arr if x == pivot2]  
+    right = [x for x in arr if x > pivot2]
+
+    return double_quick_sort(left) + p1 + double_quick_sort(mid) + p2 + double_quick_sort(right) 
+
+#Radix 정렬
+def radix_sort(arr):
+    if len(arr) <= 1:
+        return arr
+
+    def counting_sort_by_digit(arr, exp):
+        buckets = [[] for _ in range(10)]
+        for num in arr:
+            digit = (num // exp) % 10
+            buckets[digit].append(num)
+        result = []
+        for bucket in buckets:
+            result.extend(bucket)
+        return result
+
+    max_val = max(arr)
+    exp = 1
+    while max_val // exp > 0:
+        arr = counting_sort_by_digit(arr, exp)
+        exp *= 10
+    return arr
+
 
 # 테스트
-arr = [27, 10, 12, 20, 25, 13, 15, 22]
+arr = [27, 10, 12, 20, 25, 13, 15, 22, 30]
 
 print("Shell Sort: ", shell_sort(arr.copy()))
 print("Heap Sort:  ", heap_sort(arr.copy()))
 print("Merge Sort: ", merge_sort(arr.copy()))
 print("Quick Sort: ", quick_sort(arr.copy()))
+print("Double Quick Sort: ", double_quick_sort(arr.copy()))
+print("Radix Sort: ", radix_sort(arr.copy()))

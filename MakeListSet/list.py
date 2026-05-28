@@ -117,50 +117,29 @@ class MyList:
         for i in other_list:
             self.append(i)'''
 
-#테스트용 list 선언 / isfull확인용 templist
-testlist = MyList()
-templist = MyList()
-print(testlist)
+# === insert ===
+lst = MyList()
+for pos, val in enumerate(range(1, 11)):
+    lst.insert(pos, val)
+lst.display()
 
-#insert============== =====
-testlist.insert(0, 1)
-testlist.insert(1, 2)
-testlist.insert(3, 3) 
-testlist.insert(2, 3)
-testlist.insert(3, 4)
-testlist.insert(4, 5)
-testlist.insert(5, 6)
-testlist.insert(6, 7)
-testlist.insert(7, 8)
-testlist.insert(8, 9)
-testlist.insert(9, 10)
-print(testlist)
+# === delete ===
+lst.delete(1)
+lst.display()
 
-#delete====================
-testlist.delete(1)
-print(testlist)
-
-#isfull====================
+# === isfull ===
+full_lst = MyList()
 for i in range(10):
-    templist.insert(i, i)
-print(templist.isfull())
+    full_lst.insert(i, i)
+print(full_lst.isfull())  # True
 
-#isempty===================
-print(testlist.isempty())
-testlist.delete(1)
-testlist.delete(1)
-testlist.delete(1)
-testlist.delete(1)
-testlist.delete(1)
-testlist.delete(1)
-testlist.delete(1)
-testlist.delete(1)
-testlist.delete(0)
-print(testlist.isempty())
+# === isempty ===
+print(lst.isempty())      # False
+while not lst.isempty():
+    lst.delete(0)
+print(lst.isempty())      # True
 
-#getEntry==================
-print(templist.getEntry(3))
-print(templist.getEntry(9))
-
-#getEntry / item is None===
-print(testlist.getEntry(0))
+# === getEntry ===
+print(full_lst.getEntry(3))  # 3
+print(full_lst.getEntry(9))  # 9
+print(lst.getEntry(0))       # pos 에러
