@@ -75,8 +75,7 @@ class MyList:
     def get_size(self):
         return self.size
     
-    def clear(self):
-        self.size = 0
+    def clear(self): self.size = 0
    
     '''def Make_Clear2(self):
         for i in range(self.size):
@@ -117,29 +116,50 @@ class MyList:
         for i in other_list:
             self.append(i)'''
 
-# === insert ===
-lst = MyList()
-for pos, val in enumerate(range(1, 11)):
-    lst.insert(pos, val)
-lst.display()
+#테스트용 list 선언 / isfull확인용 templist
+testlist = MyList()
+templist = MyList()
+print(testlist)
 
-# === delete ===
-lst.delete(1)
-lst.display()
+#insert============== =====
+testlist.insert(0, 1)
+testlist.insert(1, 2)
+testlist.insert(3, 3) 
+testlist.insert(2, 3)
+testlist.insert(3, 4)
+testlist.insert(4, 5)
+testlist.insert(5, 6)
+testlist.insert(6, 7)
+testlist.insert(7, 8)
+testlist.insert(8, 9)
+testlist.insert(9, 10)
+print(testlist)
 
-# === isfull ===
-full_lst = MyList()
+#delete====================
+testlist.delete(1)
+print(testlist)
+
+#isfull====================
 for i in range(10):
-    full_lst.insert(i, i)
-print(full_lst.isfull())  # True
+    templist.insert(i, i)
+print(templist.isfull())
 
-# === isempty ===
-print(lst.isempty())      # False
-while not lst.isempty():
-    lst.delete(0)
-print(lst.isempty())      # True
+#isempty===================
+print(testlist.isempty())
+testlist.delete(1)
+testlist.delete(1)
+testlist.delete(1)
+testlist.delete(1)
+testlist.delete(1)
+testlist.delete(1)
+testlist.delete(1)
+testlist.delete(1)
+testlist.delete(0)
+print(testlist.isempty())
 
-# === getEntry ===
-print(full_lst.getEntry(3))  # 3
-print(full_lst.getEntry(9))  # 9
-print(lst.getEntry(0))       # pos 에러
+#getEntry==================
+print(templist.getEntry(3))
+print(templist.getEntry(9))
+
+#getEntry / item is None===
+print(testlist.getEntry(0))
